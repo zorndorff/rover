@@ -143,3 +143,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+bin
+local
+share
+include
