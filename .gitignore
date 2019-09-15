@@ -147,3 +147,4 @@ bin
 local
 share
 include
+py3env
