@@ -5,8 +5,7 @@ kit = MotorKit()
 
 
 
-kit.motor2.throttle = -1
-kit.motor1.throttle = -1
+kit.motor2.throttle = 10.0
 
 
 exit(0)
