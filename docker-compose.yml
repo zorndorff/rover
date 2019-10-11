@@ -14,7 +14,7 @@ services:
       - 8080:8080
   api:
     build: 
-      context: ./server/
+      context: ./api/
       dockerfile: Dockerfile.dev
     links:
       - redis
