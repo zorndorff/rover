@@ -20,9 +20,13 @@ services:
       - redis
     expose:
       - 8000
+    ports: 
+      - 8000:8000
+    volumes:
+      - ./api:/etc/app
     environment:
       NODE_ENV: develop
-      REDIS_URL: "redis://redis:password@redis:6379"
+      REDIS_URL: "redis://redis:6379"
       PORT: 8000
   redis:
     image: redis

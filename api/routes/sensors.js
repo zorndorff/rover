@@ -17,4 +17,13 @@ router.get('/:key', async (req, res, next) => {
   });
 });
 
+/* SET sensor by key. */
+router.put('/:key', async (req, res, next) => {
+  const result = await set(req.params.key, req.body);
+
+  res.json({
+    result
+  });
+});
+
 module.exports = router;
