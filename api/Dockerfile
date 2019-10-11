@@ -1,6 +1,7 @@
-from node:alpine
+FROM node:alpine
 
-ADD package* .
+WORKDIR /etc/app/
+ADD package* ./
 RUN npm install
 ADD . .
 

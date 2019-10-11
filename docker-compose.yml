@@ -15,17 +15,18 @@ services:
   api:
     build: 
       context: ./api/
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     links:
       - redis
     expose:
       - 8000
     environment:
       NODE_ENV: develop
+      REDIS_URL: "redis://redis:password@redis:6379"
       PORT: 8000
   redis:
     image: redis
-    container_name: cache 
+    container_name: cache
     expose:
       - 6379
 volumes:
