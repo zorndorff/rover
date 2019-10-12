@@ -12,6 +12,19 @@ services:
       - ./client:/etc/app
     ports: 
       - 8080:8080
+  controller:
+    build: 
+      context: ./controller/
+      dockerfile: Dockerfile.dev
+    command: python control.py
+    environment:
+      PORT: 8090
+      REDIS_URL: "redis://redis:6379"
+      PYTHON_ENV: "testing"
+    volumes:
+      - ./controller:/etc/app
+    ports: 
+      - 8090:8090
   api:
     build: 
       context: ./api/
