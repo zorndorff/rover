@@ -1,0 +1,37 @@
+version: '3'
+services:
+  client:
+    build: 
+      context: ./client/
+      dockerfile: Dockerfile.dev
+    command: npm run serve
+    environment:
+      NODE_ENV: develop
+      PORT: 8080
+    volumes:
+      - ./client:/etc/app
+    ports: 
+      - 8080:8080
+  api:
+    build: 
+      context: ./api/
+      dockerfile: Dockerfile
+    links:
+      - redis
+    expose:
+      - 8000
+    ports: 
+      - 8000:8000
+    volumes:
+      - ./api:/etc/app
+    environment:
+      NODE_ENV: develop
+      REDIS_URL: "redis://redis:6379"
+      PORT: 8000
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+volumes:
+  db_data:
