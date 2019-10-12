@@ -1,4 +1,4 @@
-FROM node:alpine as build
+from node:alpine as build
 
 WORKDIR /etc/app/
 ADD package* ./
@@ -7,6 +7,6 @@ ADD . .
 
 RUN npm run build
 
-FROM nginx:stable-alpine as prod
+from nginx:stable-alpine as prod
 
 COPY --from=build /etc/app/ .
