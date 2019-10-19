@@ -1,6 +1,13 @@
 #!/usr/bin/python3
 import time
-from adafruit_motorkit import MotorKit
+
+try: 
+    from adafruit_motorkit import MotorKit
+except:
+    print("Error importing motorkit")
+    pass
+
+print("Hello World")
 # kit = MotorKit()
 
 # forward_throttle = 0

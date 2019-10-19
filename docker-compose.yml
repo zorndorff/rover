@@ -16,7 +16,7 @@ services:
     build: 
       context: ./controller/
       dockerfile: Dockerfile.dev
-    command: python control.py
+    command: python ./src/control.py
     environment:
       PORT: 8090
       REDIS_URL: "redis://redis:6379"

@@ -6,4 +6,7 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 WORKDIR /etc/app
-ADD . .
+
+ADD src/ ./
+
+CMD ["python", "./control.py"]
