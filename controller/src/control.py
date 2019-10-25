@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import time
+import util
 
 try: 
     from adafruit_motorkit import MotorKit
@@ -7,7 +8,18 @@ except:
     print("Error importing motorkit")
     pass
 
-print("Hello World")
+class BotController:
+    def __init__(self):
+        self.commands = util.redis.connect()
+        self.sensors = util.redis.connect()
+        self.pubsub = self.commands.pubsub()
+
+def main():
+    control = BotController()
+    control.sensors.set('hello', 'world')
+    print(control.sensors.get('hello'))
+
+
 # kit = MotorKit()
 
 # forward_throttle = 0
