@@ -3,6 +3,7 @@
     <v-card-title primary-title>
       <div>
         <h3 class="headline mb-0">Controls</h3>
+
       </div>
     </v-card-title>
   </v-card>
@@ -11,7 +12,7 @@
 <script>
 export default {
   methods: {
-    forward: () => {
+    throttle: (axis, direction) => {
 
     },
   },
