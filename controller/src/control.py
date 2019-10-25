@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import time
-import util
+from util import util
 
 try: 
     from adafruit_motorkit import MotorKit
@@ -10,8 +10,8 @@ except:
 
 class BotController:
     def __init__(self):
-        self.commands = util.redis.connect()
-        self.sensors = util.redis.connect()
+        self.commands = util.connect()
+        self.sensors = util.connect()
         self.pubsub = self.commands.pubsub()
 
 def main():
@@ -19,6 +19,7 @@ def main():
     control.sensors.set('hello', 'world')
     print(control.sensors.get('hello'))
 
+main()
 
 # kit = MotorKit()
 

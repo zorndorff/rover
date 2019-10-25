@@ -19,8 +19,14 @@ services:
     command: python ./src/control.py
     environment:
       PORT: 8090
-      REDIS_URL: "redis://redis:6379"
+      REDIS_HOST: "redis"
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
       PYTHON_ENV: "testing"
+    links:
+      - redis
+    depends_on:
+      - redis
     volumes:
       - ./controller:/etc/app
     ports: 
